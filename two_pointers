@@ -1,0 +1,25 @@
+2-pointers partition with swaps
+937. Reorder Data in Log Files: https://leetcode.com/problems/reorder-data-in-log-files/description/
+
+Counting subarrays using prefix sums, and hash table of remainders
+- the problem has some non-monotonic criteria, e.g. subarray sum should be multiple of k (sum % k == 0),
+  or count of some elements modulo M should give k (count % M == k)
+- the main idea here is to use property of prefix sum, where the sum of a subarray laying on indices [i..j]
+  is calculated as "prefix_sum[j] - prefix_sum[i - 1]";
+  - for "sum % k == 0": "(prefix_sum[j] - prefix_sum[i - 1]) % k == 0", or "prefix_sum[j] % k == prefix_sum[i - 1] % k"
+    !! take into account that prefix_sum[i] might be negative; in C++ the modulo operation for negative operand may give negative result
+    !! see item below for the trick to solve the problem 
+  - for "count % M == k": "(prefix_sum[j] - prefix_sum[i - 1]) % M == k", or "prefix_sum[j] % M - k == prefix_sum[i - 1] % M";
+    but since the expression "prefix_sum[j] % M - k" may yield a negative result, the following thrick is applied:
+    "(prefix_sum[j] % M - k + M) % M == prefix_sum[i - 1] % M"
+- when use a hash table to store remainders, it is very important to set up the item with sum == 0:
+        std::unordered_map<int, int> seen;  // <prefix_sum[i - 1] % k, count>
+        seen[0] = 1;  // initial value of the prefix sum is 0, we need to store it manually just after declaration
+
+- list of LeetCode problems:
+  🔸 974. Subarray Sums Divisible by K — sum % k == 0
+  🔸 523. Continuous Subarray Sum — check if a subarray exists
+  🔸 560. Subarray Sum Equals K — no modullo, just sum == k  
+  🔸 930. Binary Subarrays With Sum — binary version, sum == goal
+  🔸 1248. Count Number of Nice Subarrays — #odd == k
+  🔸 2845. Count of Interesting Subarrays
