@@ -14,9 +14,9 @@ Counting subarrays using prefix sums, and hash table of remainders
         seen[0] = 1;  // initial value of the prefix sum is 0, we need to store it manually just after declaration
 
 - list of LeetCode problems:
-  🔸 974. Subarray Sums Divisible by K — sum % k == 0
-  🔸 523. Continuous Subarray Sum — check if a subarray exists
-  🔸 560. Subarray Sum Equals K — no modullo, just sum == k  
-  🔸 930. Binary Subarrays With Sum — binary version, sum == goal
-  🔸 1248. Count Number of Nice Subarrays — #odd == k
-  🔸 2845. Count of Interesting Subarrays
+  - 🔸 974. Subarray Sums Divisible by K — sum % k == 0
+  - 🔸 523. Continuous Subarray Sum — check if a subarray exists
+  - 🔸 560. Subarray Sum Equals K — no modullo, just sum == k  
+  - 🔸 930. Binary Subarrays With Sum — binary version, sum == goal
+  - 🔸 1248. Count Number of Nice Subarrays — #odd == k
+  - 🔸 2845. Count of Interesting Subarrays
