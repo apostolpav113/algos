@@ -1,0 +1,3 @@
+- Boyer–Moore Majority Vote
+- Prefix function on string
+- Fenwick tree
